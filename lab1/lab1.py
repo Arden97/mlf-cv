@@ -2,6 +2,7 @@ import numpy as np
 import random
 import matplotlib.pyplot as plt
 import time
+import pandas as pd
 
 x = "X "
 revert = False
@@ -87,4 +88,13 @@ def set_to_0(arr, threshold):
     pass
 
 
+df = pd.read_csv('data.csv')
+
+for x in df.index:
+  if df.loc[x, "total_bedrooms"] > 120:
+    print(df.loc(x))
+
+#remember to include the 'inplace = True' argument to make the changes in the original DataFrame object instead of returning a copy
+
+print(df.to_string())
 
