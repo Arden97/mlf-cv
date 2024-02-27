@@ -68,11 +68,11 @@ anom_index = numpy.where(pred==-1)
 values = x[anom_index]
 
 # Plot the support vectors
-supvectors2=SVMmodelOne.support_vectors_
-plt.figure(6)
+supvectors=SVMmodelOne.support_vectors_
+plt.figure(4)
 plt.scatter(x[:,0], x[:,1])
 plt.scatter(values[:,0], values[:,1], color='red')
-plt.scatter(supvectors2[:,0],supvectors2[:,1],color='magenta')
+plt.scatter(supvectors[:,0],supvectors[:,1],color='magenta')
 plt.axis('equal')
 
 # What if we want to have a control what is outlier? Use e.g. 5% "quantile" to mark the outliers. Every point with lower score than threshold will be an outlier.
@@ -81,7 +81,7 @@ thresh = numpy.quantile(scores, 0.05)
 print(thresh)
 index = numpy.where(scores<=thresh)
 values = x[index]
-plt.figure(7)
+plt.figure(5)
 plt.scatter(x[:,0], x[:,1])
 plt.scatter(values[:,0], values[:,1], color='red')
 plt.axis('equal')
